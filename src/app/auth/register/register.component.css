@@ -1,0 +1,59 @@
+.form-card {
+    max-width: 500px;
+    max-height: 750px;
+    margin: auto;
+    margin-top: 100px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs {
+    margin: 10px 0;
+    max-width: 400px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-right: 30px;
+}
+
+mat-card-title {
+    margin: 25px 0;
+}
+
+.description {
+    height: 250px;
+}
+.final-buttons > button {
+    margin: 0 25px;
+    margin-top: 30px;
+
+}
+
+/* new styles */
+
+.not-registered{
+    display: flex;
+    max-width: 400px;
+    margin: 10px auto;
+}
+.create-account{
+    text-decoration: none;
+    color: #673ab7;
+    margin-left: 4px;
+}
+.header{
+    justify-content: center;
+}

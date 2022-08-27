@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-test-project-446cc": {
+      "hosting": {
+        "angular-test-project": [
+          "angular-test-project-446cc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-test-project-446cc"
+  }
+}

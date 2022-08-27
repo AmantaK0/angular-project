@@ -1,0 +1,56 @@
+<!-- <div>
+  <h1>HELLOOOOOOOO</h1>
+</div> -->
+<mat-vertical-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="signUpForm">
+    <form [formGroup]="signUpForm">
+      <ng-template matStepLabel>Fill out account details</ng-template>
+      <mat-card-content class="content">
+
+        <mat-form-field class="inputs">
+          <input matInput placeholder="Username" formControlName="username">
+          <mat-error>
+            Username is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="userName?.errors?.['validUsername']">
+            Username can only contain letters and numbers
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field class="inputs">
+          <input matInput type="email" placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="inputs">
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error>
+            Password must contain 1 letter, 1 number and be at least 8 characters long
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="inputs">
+          <input matInput type="password" placeholder="Confirm Password" formControlName="cpassword" [errorStateMatcher]="errorMatcher">
+          <mat-error>
+            Passwords do not match
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="inputs">
+          <mat-label>Select account type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="user">User</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+      <div class="not-registered">
+        <p>Already have an account?</p>
+        <a class="create-account" href="signin">Log in</a>
+      </div>
+    </form>
+  </mat-step>
+</mat-vertical-stepper>
