@@ -34,12 +34,18 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialModule } from './material/material.module';
+import { CreateTicketComponent } from './dashboard/create-ticket/create-ticket.component';
+import { TicketService } from './shared/services/tickets.service';
+import { ViewTicketComponent } from './dashboard/view-ticket/view-ticket.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    CreateTicketComponent,
+    ViewTicketComponent
   ],
   imports: [
     BrowserModule,
@@ -65,8 +71,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AuthModule,
+    MaterialModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

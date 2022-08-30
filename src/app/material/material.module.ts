@@ -13,7 +13,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { AvatarModule } from 'ngx-avatar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -31,7 +30,6 @@ const materialComponents = [
       MatSelectModule,
       MatIconModule,
       MatToolbarModule,
-    //   AvatarModule,
       MatMenuModule,
       MatTableModule,
       MatProgressSpinnerModule,

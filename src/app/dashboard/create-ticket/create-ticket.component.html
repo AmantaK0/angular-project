@@ -1,0 +1,64 @@
+<div class="form-card">
+    <mat-card class="mat-card">
+      <mat-card-header class="header">
+        <mat-card-title class="font-title-m">Create Ticket</mat-card-title>
+      </mat-card-header>
+      <form class="form" [formGroup]="createTicketForm">
+
+        <mat-card-content class="content">
+
+            <mat-form-field class="inputs">
+              <mat-label>Inbound</mat-label>
+              <input type="text" class="form-control" matInput formControlName="inbound">
+    
+            </mat-form-field>
+
+            <mat-form-field class="inputs">
+              <mat-label>Outbound</mat-label>
+              <input matInput formControlName="outbound">
+            </mat-form-field>
+
+            <mat-form-field class="inputs">
+                <mat-label>Select ticket type</mat-label>
+                <mat-select formControlName="ticketType">
+                  <mat-option value="firstClass">First Class</mat-option>
+                  <mat-option value="bussinessClass">Bussiness Class</mat-option>
+                  <mat-option value="economyClass">Economy Class</mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+            <mat-form-field class="inputs">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" type="number">
+            </mat-form-field>  
+        
+
+            <mat-form-field class="inputs">
+                <mat-label>From Date</mat-label>
+                <input matInput [matDatepicker]="fromPicker" formControlName="fromDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                <mat-datepicker #fromPicker></mat-datepicker>
+              </mat-form-field>
+              
+            
+              <mat-form-field class="inputs">
+                <mat-label>To Date</mat-label>
+                <input matInput [matDatepicker]="toPicker" formControlName="toDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                <mat-datepicker #toPicker></mat-datepicker>
+              </mat-form-field>
+
+
+              <mat-form-field class="inputs">
+                <mat-label>Seat Number</mat-label>
+                <input matInput formControlName="seatNumber">
+              </mat-form-field>
+          </mat-card-content>
+
+          <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+          
+      </form>
+    </mat-card>
+</div>
