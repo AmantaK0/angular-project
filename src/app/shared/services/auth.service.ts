@@ -1,11 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/User';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
-import { newUserForm } from 'src/app/interfaces/newUserForm';
+import { newUserModel } from 'src/app/interfaces/newUserModel';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { first } from 'rxjs/operators';
 
@@ -25,7 +25,7 @@ export class AuthService {
     // this.currentUser.subscribe(x => this.uid = x.uid);
   }
 
-  signUp(userData: newUserForm) {
+  signUp(userData: newUserModel) {
     this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password)
       .then((result: any) => {
         let id = result.user.uid;

@@ -18,7 +18,10 @@ export class ViewTicketComponent implements OnInit {
   constructor(private router: ActivatedRoute, private snackBar: MatSnackBar, private ticketService: TicketService) { }
 
   ngOnInit(): void {
-    console.log(this.ticketId);
+    this.ticketService.getTicket(this.ticketId).subscribe(res => {
+      console.log(res);
+      this.viewTicketData = res;
+    })
   }
 
   // onSubmit(){

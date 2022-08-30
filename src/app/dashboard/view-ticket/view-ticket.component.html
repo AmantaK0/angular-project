@@ -1,61 +1,43 @@
 <div class="form-card">
     <mat-card class="mat-card">
       <mat-card-header class="header">
-        <mat-card-title class="font-title-m">Create Ticket</mat-card-title>
+        <mat-card-title class="font-title-m">View Ticket</mat-card-title>
       </mat-card-header>
-      <form class="form" >
+      <div class="form wrap">
 
         <mat-card-content class="content">
 
-            <mat-form-field class="inputs">
-              <mat-label>Inbound</mat-label>
-              <input type="text" class="form-control" matInput>
-    
-            </mat-form-field>
+            <div class="inputs">
+              <p>Inbound: {{viewTicketData.inbound}}</p>
+            </div>
 
-            <mat-form-field class="inputs">
-              <mat-label>Outbound</mat-label>
-              <input matInput>
-            </mat-form-field>
+            <div class="inputs">
+              <p>Outbound: {{viewTicketData.outbound}}</p>
+            </div>
 
-            <mat-form-field class="inputs">
-                <mat-label>Select ticket type</mat-label>
-                <mat-select formControlName="ticketType">
-                  <mat-option value="firstClass">First Class</mat-option>
-                  <mat-option value="bussinessClass">Bussiness Class</mat-option>
-                  <mat-option value="economyClass">Economy Class</mat-option>
-                </mat-select>
-              </mat-form-field>
+            <div class="inputs">
+                <p>Ticket type: {{viewTicketData.ticketType}}</p>
+              </div>
             
-            <mat-form-field class="inputs">
-                <mat-label>Price</mat-label>
-                <input matInput type="number">
-            </mat-form-field>  
+            <div class="inputs">
+                <p>Price: {{viewTicketData.price}}$</p>
+            </div>  
         
 
-            <mat-form-field class="inputs">
-                <mat-label>From Date</mat-label>
-                <input matInput [matDatepicker]="fromPicker" >
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
-                <mat-datepicker #fromPicker></mat-datepicker>
-              </mat-form-field>
+            <div class="inputs">
+              <p>From Date: {{viewTicketData.fromDate.toDate().toDateString()}}</p>
+              </div>
               
             
-              <mat-form-field class="inputs">
-                <mat-label>To Date</mat-label>
-                <input matInput [matDatepicker]="toPicker" >
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
-                <mat-datepicker #toPicker></mat-datepicker>
-              </mat-form-field>
+              <div class="inputs">
+                <p>To Date: {{viewTicketData.toDate.toDate().toDateString()}}</p>
+              </div>
 
 
-              <mat-form-field class="inputs">
-                <mat-label>Seat Number</mat-label>
-                <input matInput>
-              </mat-form-field>
+              <div class="inputs">
+                <p>Seat Number: {{viewTicketData.seatNumber}}</p>
+              </div>
           </mat-card-content>          
-      </form>
+        </div>
     </mat-card>
 </div>

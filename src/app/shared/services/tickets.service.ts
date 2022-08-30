@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { first } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
+import { ticketModel } from 'src/app/interfaces/ticketModel';
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +35,12 @@ export class TicketService {
         })
   }
 
-  getTicket(id: String) {
+  getTicket(id: string) {
+    return this.afStore.collection('/tickets').doc(id).valueChanges().pipe(first())
+  }
 
+  getTickets() {
+    return this.afStore.collection<ticketModel>('/tickets').valueChanges()
   }
 }
 
