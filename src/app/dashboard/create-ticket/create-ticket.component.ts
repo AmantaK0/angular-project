@@ -33,7 +33,7 @@ export class CreateTicketComponent implements OnInit {
     
     if(!this.createTicketForm.valid) return
     let ticketId = uuid.v4();
-    this.createTicketForm.get("id")?.setValue(ticketId)
+    this.createTicketForm.get("id")?.setValue(ticketId);
     this.ticketService.createTicket(this.createTicketForm.value);
   }
 }

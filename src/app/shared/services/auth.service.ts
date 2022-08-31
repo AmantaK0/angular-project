@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from '../../interfaces/User';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
 import { newUserModel } from 'src/app/interfaces/newUserModel';
@@ -69,7 +69,7 @@ export class AuthService {
     signOut(){
       this.afAuth.signOut().then( () =>{
         localStorage.clear();
-        this.router.navigate(["login"]);
+        this.router.navigate(["signin"]);
       });
     }
 
@@ -85,11 +85,6 @@ export class AuthService {
     getUserInfo(){
       this.userInfo = JSON.parse(localStorage.getItem('user')!);
       return this.userInfo;
-    }
-    
-    generatePatientName(name: string, date: Date): string{
-      let newdate = new Date(date);
-      return name.toUpperCase() + ' ' + '(' + (newdate.getDate() + '.' + (newdate.getMonth()+1) + '.' + newdate.getFullYear()) + ')';
     }
 }
 

@@ -16,23 +16,44 @@ export class TicketService {
 
   createTicket(createTicketForm: any) {
 
-    this.afStore.collection('/tickets').doc(createTicketForm.id).set({
-        id: createTicketForm.id,
-        inbound: createTicketForm.inbound,
-        outbound: createTicketForm.outbound,
-        ticketType: createTicketForm.ticketType,
-        price: createTicketForm.price,
-        fromDate: createTicketForm.fromDate,
-        toDate: createTicketForm.toDate,
-        seatNumber: createTicketForm.seatNumber
-        })
-        .then(() => {
-            this.snackBar.open("Ticket created", "Close");
-            this.router.navigate([`/ticket/${createTicketForm.id}`])
-        })
-        .catch(error => {
-          console.log(error);
-        })
+    let isDuplicate = false;
+
+    this.getTickets().pipe(first()).subscribe(data => {
+      data.forEach(el => {
+        if(el.inbound === createTicketForm.inbound 
+          && el.outbound === createTicketForm.outbound
+          && el.fromDate.toDate().getTime() === createTicketForm.fromDate.getTime() 
+          && el.toDate.toDate().getTime() === createTicketForm.toDate.getTime()
+          && el.seatNumber === createTicketForm.seatNumber){
+            isDuplicate = true;
+          }
+      }) 
+
+      if(isDuplicate){
+        this.snackBar.open("Ticket already exists", "Close");
+      }
+      else{
+        this.afStore.collection('/tickets').doc(createTicketForm.id).set({
+          id: createTicketForm.id,
+          inbound: createTicketForm.inbound,
+          outbound: createTicketForm.outbound,
+          ticketType: createTicketForm.ticketType,
+          price: createTicketForm.price,
+          fromDate: createTicketForm.fromDate,
+          toDate: createTicketForm.toDate,
+          seatNumber: createTicketForm.seatNumber
+          })
+          .then(() => {
+              this.snackBar.open("Ticket created", "Close");
+              this.router.navigate([`/ticket/${createTicketForm.id}`])
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      }
+    } )
+    
+    
   }
 
   getTicket(id: string) {

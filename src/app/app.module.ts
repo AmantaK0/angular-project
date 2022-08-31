@@ -38,6 +38,10 @@ import { MaterialModule } from './material/material.module';
 import { CreateTicketComponent } from './dashboard/create-ticket/create-ticket.component';
 import { TicketService } from './shared/services/tickets.service';
 import { ViewTicketComponent } from './dashboard/view-ticket/view-ticket.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { LoggedInGuard } from './shared/guards/loggedIn.guard';
+import { AdminGuard } from './shared/guards/admin.guard';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -73,7 +77,7 @@ import { ViewTicketComponent } from './dashboard/view-ticket/view-ticket.compone
     AuthModule,
     MaterialModule
   ],
-  providers: [AuthService, TicketService],
+  providers: [AuthService, TicketService, AuthGuard, LoggedInGuard, AdminGuard,  {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 4000}}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

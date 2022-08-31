@@ -1,0 +1,41 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttons{
+    justify-self: flex-end;
+}
+button{
+    margin-right: 25px;
+}
+.menu{
+    cursor: pointer;
+}
+/* sidenav */
+.sidenav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+.sidenav-btn{
+    margin: 40px 50px;
+    margin-bottom: 0px;
+}
+.sidenav-btn div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+}
+.sidenav-btn div p{
+    margin: 0;
+    margin-left: 10px;
+}
+.sidenav-buttons{
+    display: flex;
+    flex-direction: column;
+}

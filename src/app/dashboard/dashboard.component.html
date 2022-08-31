@@ -9,7 +9,7 @@
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Keyword" #input>
         </mat-form-field>
-        <button mat-mini-fab matTooltip="Create a ticket" color="primary" [routerLink]="'create-ticket'">
+        <button *ngIf="isAdmin" mat-mini-fab matTooltip="Create a ticket" color="primary" [routerLink]="'/create-ticket'">
             <mat-icon>add</mat-icon>
         </button>
     </div>

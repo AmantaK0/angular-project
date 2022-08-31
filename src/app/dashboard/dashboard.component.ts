@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { TicketService } from '../shared/services/tickets.service';
 import { ticketModel } from '../interfaces/ticketModel';
+import { AuthService } from '../shared/services/auth.service';
 
 let ELEMENT_DATA: ticketModel[] = [];
 
@@ -26,14 +27,14 @@ export class DashboardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, 
     private ticketService: TicketService, 
-    public router: Router) { 
+    public router: Router,
+    private authService: AuthService) { 
   }
 
   ngOnInit(): void {
     this.loadData();
+    // console.log(this.authService.isAdmin());
   }
-
-  
 
 
   applyFilter(event: Event) {
@@ -59,15 +60,13 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  
-
   onView(i: number){
-    // this.dialog.open(PatientDialogComponent, {
-    //   data: ELEMENT_DATA[i].propertyId,
-    // });
+    window.open(`/ticket/${ELEMENT_DATA[i].id}`, '_blank')
+
   }
-  onEdit(i: number){
-    this.router.navigate(['patients/update/', ELEMENT_DATA[i].id]);
+
+  get isAdmin() {
+    return this.authService.isAdmin()
   }
 
   ngOnDestroy(){

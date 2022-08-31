@@ -5,14 +5,17 @@ import { RegisterComponent } from './auth/register/register.component';
 import { CreateTicketComponent } from './dashboard/create-ticket/create-ticket.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewTicketComponent } from './dashboard/view-ticket/view-ticket.component';
+import { AdminGuard } from './shared/guards/admin.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { LoggedInGuard } from './shared/guards/loggedIn.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'signin', component: LoginComponent },
-  { path: 'signup', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'create', component: CreateTicketComponent },
-  { path: 'ticket/:id', component: ViewTicketComponent }
+  { path: 'signin', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [LoggedInGuard] },
+  { path: 'create-ticket', component: CreateTicketComponent, canActivate: [LoggedInGuard, AdminGuard] },
+  { path: 'ticket/:id', component: ViewTicketComponent, canActivate: [LoggedInGuard] }
  ];
 
 @NgModule({

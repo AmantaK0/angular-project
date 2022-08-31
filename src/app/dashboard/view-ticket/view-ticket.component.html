@@ -5,7 +5,7 @@
       </mat-card-header>
       <div class="form wrap">
 
-        <mat-card-content class="content">
+        <mat-card-content *ngIf="viewTicketData" class="content">
 
             <div class="inputs">
               <p>Inbound: {{viewTicketData.inbound}}</p>

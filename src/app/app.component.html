@@ -1,3 +1,41 @@
-<div class="content-body">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #sidenav>
+      <div class="sidenav-buttons">
+          <button mat-stroked-button class="sidenav-btn" [routerLink]="'dashboard'" (click)="sidenav.toggle()">
+              <div>
+                  <mat-icon>date_range</mat-icon> 
+                  <p>Dashboard</p>
+              </div>
+          </button>
+          <button mat-stroked-button class="sidenav-btn" [routerLink]="'create-ticket'" (click)="sidenav.toggle()" *ngIf="this.service.isAdmin()">
+              <div>
+                  <mat-icon>date_range</mat-icon> 
+                  <p>Create Ticket</p>
+              </div>
+          </button>
+      </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <mat-toolbar class="nav">
+          <div class="menu">
+              <button mat-icon-button (click)="sidenav.toggle()" *ngIf="this.service.isAuthenticated()">
+                  <mat-icon>menu</mat-icon>
+              </button>
+              <span [routerLink]="''">Bookings</span>
+          </div>
+          
+          <div *ngIf="!service.isAuthenticated()">
+              <button mat-stroked-button [routerLink]="'signin'">Log In</button>
+              <button mat-stroked-button color="primary" [routerLink]="'signup'">Register</button>
+          </div>
+          <div *ngIf="service.isAuthenticated()">
+            <button mat-stroked-button (click)="Logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
+            </button>
+          </div>
+          </mat-toolbar>
+          <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
