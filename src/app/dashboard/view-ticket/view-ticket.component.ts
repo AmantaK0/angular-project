@@ -19,16 +19,7 @@ export class ViewTicketComponent implements OnInit {
 
   ngOnInit(): void {
     this.ticketService.getTicket(this.ticketId).subscribe(res => {
-      console.log(res);
       this.viewTicketData = res;
     })
   }
-
-  // onSubmit(){
-    
-  //   if(!this.viewTicketForm.valid) return
-  //   let ticketId = uuid.v4();
-  //   this.viewTicketForm.get("id")?.setValue(ticketId)
-  //   this.ticketService.viewTicket(this.viewTicketForm.value);
-  // }
 }

@@ -42,6 +42,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { LoggedInGuard } from './shared/guards/loggedIn.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     AppComponent,
     DashboardComponent,
     CreateTicketComponent,
-    ViewTicketComponent
+    ViewTicketComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

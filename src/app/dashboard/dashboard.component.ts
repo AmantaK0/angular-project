@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-    // console.log(this.authService.isAdmin());
   }
 
 
@@ -45,7 +44,6 @@ export class DashboardComponent implements OnInit {
   loadData(){
     this.ticketService.getTickets().pipe(takeUntil(this.ngUnsub))
     .subscribe(res => {
-      console.log(res);
       
       ELEMENT_DATA = [];
       res.forEach(data => {

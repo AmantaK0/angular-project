@@ -22,7 +22,7 @@
               <button mat-icon-button (click)="sidenav.toggle()" *ngIf="this.service.isAuthenticated()">
                   <mat-icon>menu</mat-icon>
               </button>
-              <span [routerLink]="''">Bookings</span>
+              <span [routerLink]="'/chart'">Bookings</span>
           </div>
           
           <div *ngIf="!service.isAuthenticated()">
