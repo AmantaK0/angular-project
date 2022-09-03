@@ -18,11 +18,9 @@ export class AuthService {
   usersDb!: AngularFireList<any>;
   user!: AngularFireObject<any>;
   userInfo!: User;
-  // public currentUser!: Observable<firebaseUser.User>;
 
   constructor(public afStore:AngularFirestore, public afAuth: AngularFireAuth, private router: Router, private snackBar: MatSnackBar) {
-    // this.currentUser = this.afAuth.authState.pipe(filter((user: firebaseUser.User | null): user is firebaseUser.User => !!user));
-    // this.currentUser.subscribe(x => this.uid = x.uid);
+  
   }
 
   signUp(userData: newUserModel) {

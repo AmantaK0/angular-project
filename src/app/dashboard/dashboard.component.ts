@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { TicketService } from '../shared/services/tickets.service';
 import { ticketModel } from '../interfaces/ticketModel';
 import { AuthService } from '../shared/services/auth.service';

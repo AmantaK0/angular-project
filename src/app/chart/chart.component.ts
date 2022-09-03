@@ -20,7 +20,7 @@ export class ChartComponent implements OnInit {
             labels: ['France', 'Germany', 'Spain', 'Turkey', 'Greece', 'Switzerland'],
             datasets: [{
                 label: '# of Tickets',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [480, 550, 430, 380, 300, 600],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
