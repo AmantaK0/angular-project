@@ -57,7 +57,7 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(info));
           localStorage.setItem('id', id as string)
           localStorage.setItem('isLoggedIn', 'true');
-          this.router.navigate(['']);
+          this.router.navigate(['/chart']);
           });
       }).catch(error => {
         this.snackBar.open("Invalid email or password", "Close");

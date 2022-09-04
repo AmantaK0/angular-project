@@ -9,7 +9,7 @@ import { AuthService } from "../../shared/services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  hide = true;
+  hide = true; 
 
   error: any
 
@@ -24,6 +24,5 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm: NgForm) {
     this.authService.signIn(loginForm.value);
-    // loginForm.resetForm();
   }
 }

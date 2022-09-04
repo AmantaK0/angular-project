@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* top: 100px; */
     margin: 0 5px;
 }
 .inputs{
