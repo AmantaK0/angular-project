@@ -11,13 +11,15 @@ import { ticketModel } from 'src/app/interfaces/ticketModel';
 })
 export class TicketService {
 
+  public isCreateTicketLoading = false;
+
   constructor(public afStore:AngularFirestore, private router: Router, private snackBar: MatSnackBar) {
   }
 
   createTicket(createTicketForm: any) {
 
     let isDuplicate = false;
-
+    this.isCreateTicketLoading = true;
     this.getTickets().pipe(first()).subscribe(data => {
       data.forEach(el => {
         if(el.inbound === createTicketForm.inbound 
@@ -30,6 +32,7 @@ export class TicketService {
       }) 
 
       if(isDuplicate){
+        this.isCreateTicketLoading = false;
         this.snackBar.open("Ticket already exists", "Close");
       }
       else{
@@ -38,16 +41,19 @@ export class TicketService {
           inbound: createTicketForm.inbound,
           outbound: createTicketForm.outbound,
           ticketType: createTicketForm.ticketType,
+          ticketTypeId: createTicketForm.ticketTypeId,
           price: createTicketForm.price,
           fromDate: createTicketForm.fromDate,
           toDate: createTicketForm.toDate,
           seatNumber: createTicketForm.seatNumber
           })
           .then(() => {
+              this.isCreateTicketLoading = false;
               this.snackBar.open("Ticket created", "Close");
               this.router.navigate([`/ticket/${createTicketForm.id}`])
           })
           .catch(error => {
+            this.isCreateTicketLoading = false;
             console.log(error);
           })
       }

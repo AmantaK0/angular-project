@@ -1,6 +1,12 @@
 <mat-sidenav-container class="sidenav">
   <mat-sidenav #sidenav>
       <div class="sidenav-buttons">
+          <button mat-stroked-button class="sidenav-btn" [routerLink]="'chart'" (click)="sidenav.toggle()">
+              <div>
+                  <mat-icon>bar_chart</mat-icon> 
+                  <p>Stats</p>
+              </div>
+          </button>
           <button mat-stroked-button class="sidenav-btn" [routerLink]="'dashboard'" (click)="sidenav.toggle()">
               <div>
                   <mat-icon>date_range</mat-icon> 
@@ -9,7 +15,7 @@
           </button>
           <button mat-stroked-button class="sidenav-btn" [routerLink]="'create-ticket'" (click)="sidenav.toggle()" *ngIf="this.service.isAdmin()">
               <div>
-                  <mat-icon>date_range</mat-icon> 
+                  <mat-icon>add</mat-icon> 
                   <p>Create Ticket</p>
               </div>
           </button>
